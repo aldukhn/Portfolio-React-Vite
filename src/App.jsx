@@ -20,7 +20,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="flex h-screen justify-center items-center dark:bg-gradient-to-br dark:from-slate-950 dark:to-slate-900">
-        <HashLoader color={"#F37A24"} loading={isLoading} size={150} />
+        <HashLoader color={"#3B82F6"} loading={isLoading} size={150} />
       </div>
     );
   }
