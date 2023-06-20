@@ -8,6 +8,7 @@ This is a portfolio website built with React.js, Vite, Tailwind CSS, and Firebas
 To run the project locally, you will need to have Node.js and npm installed. Once you have those installed, you can run the following commands:
 
 
+
 - install `node_modules` using `pnpm i`
 - start the website:
 `pnpm dev`
