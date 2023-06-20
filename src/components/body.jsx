@@ -3,16 +3,16 @@ import Projectscard from "./projectscard";
 import Socials from "./socials";
 import Skills from "./skills";
 import Experience from "./experience";
+import ExtraSection from "./extraSection";
+
 //firebase
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { useState, useEffect } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import firebaseConfig from "../common/firebaseConfig";
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+initializeApp(firebaseConfig);
 //end firebase
 function Body() {
   const [projectsData, setProjectsData] = useState([]);
@@ -20,6 +20,7 @@ function Body() {
   const [skillsData, setSkillsData] = useState([]);
   const [sumData, setSumData] = useState([]);
   const [funFacts, setfunFacts] = useState([]);
+  const [titlesData, settitlesData] = useState([]);
 
   useEffect(() => {
     const db = getDatabase();
@@ -52,6 +53,12 @@ function Body() {
       const data = snapshot.val();
       setfunFacts(data);
     });
+
+    const titlesRef = ref(db, "titles/");
+    onValue(titlesRef, (snapshot) => {
+      const data = snapshot.val();
+      settitlesData(data);
+    });
   }, []);
   return (
     <section className="flex flex-wrap h-full flex-grow">
@@ -64,7 +71,7 @@ function Body() {
             className="h-40 rounded-full  "
           />
           <h1 className="text-5xl font-semibold font-dancingScript tracking-widest">
-            Hi there!
+            {titlesData["4"]}
           </h1>
           <Socials />
         </div>
@@ -83,7 +90,7 @@ function Body() {
         ))}
         {/* Projects section*/}
 
-        <h1 className="text-3xl font-semibold pb-5">🛠 Projects</h1>
+        <h1 className="text-3xl font-semibold pb-5">{titlesData["0"]}</h1>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-1 lg:grid-cols-2 ">
           {projectsData.map((project, i) => (
             <Projectscard
@@ -96,16 +103,14 @@ function Body() {
           ))}
         </div>
         {/* For Skiils Section */}
-        <h1 className="text-3xl font-bold pt-5">🤓 Skills</h1>
+        <h1 className="text-3xl font-bold pt-5">{titlesData["1"]}</h1>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-8 ">
           {skillsData.map((skills, i) => (
             <Skills image={skills.image} name={skills.name} key={i} />
           ))}
         </div>
         {/* For Experience Section */}
-        <h1 className="text-3xl font-bold pt-5  pb-5">
-          👨‍🎓💼 Experience & Education{" "}
-        </h1>
+        <h1 className="text-3xl font-bold pt-5  pb-5">{titlesData["3"]}</h1>
         <div className="grid grid-cols-1  gap-5  md:grid-cols-1 lg:grid-cols-1 ">
           {experienceData.map((experience, i) => (
             <Experience
@@ -116,6 +121,11 @@ function Body() {
               key={i}
             />
           ))}
+        </div>
+        {<br></br>}
+        <h1 className="text-3xl font-semibold pb-5">{titlesData["2"]}</h1>
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-1 lg:grid-cols-2 ">
+          <ExtraSection description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non dignissimos provident dolore? Veniam repellendus nemo iure dolorum? Eveniet autem, tenetur a, optio cumque explicabo illo mollitia tempora repellendus labore beatae?" />
         </div>
       </article>
     </section>

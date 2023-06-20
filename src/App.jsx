@@ -5,8 +5,7 @@ import "./index.css";
 import Body from "./components/body";
 import Footer from "./components/footer";
 import { useState, useEffect } from "react";
-import { Spinner } from "react-spinner-animated";
-import "react-spinner-animated/dist/index.css";
+import HashLoader from "react-spinners/HashLoader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,8 +19,8 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="flex h-screen dark:bg-gradient-to-br dark:from-slate-950 dark:to-slate-900">
-        <Spinner text={"Loading..."} speed={5} />
+      <div className="flex h-screen justify-center items-center dark:bg-gradient-to-br dark:from-slate-950 dark:to-slate-900">
+        <HashLoader color={"#F37A24"} loading={isLoading} size={150} />
       </div>
     );
   }
