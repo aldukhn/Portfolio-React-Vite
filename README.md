@@ -8,10 +8,10 @@ This is a portfolio website built with React.js, Vite, Tailwind CSS, and Firebas
 To run the project locally, you will need to have Node.js and npm installed. Once you have those installed, you can run the following commands:
 
 
-pnpm i
-start the website:
-pnpm dev
-- Note: If you want to use `yarn` or `npm` just delete **pnpm-lock.yaml** file and install `node_modules` using `yarn add` or `npm i`
+- install `node_modules` using `pnpm i`
+- start the website:
+`pnpm dev`
+-  Note: If you want to use `yarn` or `npm` just delete **pnpm-lock.yaml** file and install `node_modules` using `yarn add` or `npm i` 
 
 This will start the development server on port 3000. You can then open your browser and navigate to `http://localhost:3000` to view the project.
 
