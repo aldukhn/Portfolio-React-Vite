@@ -25,9 +25,4 @@ This will start the development server on port 3000. You can then open your brow
 
 Contributions are welcome! Please open an issue or a pull request if you have any changes or improvements you would like to make.
 
-## License
 
-This project is licensed under the MIT License.
-
-
-I hope this is what you were looking for!****
