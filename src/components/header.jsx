@@ -7,7 +7,7 @@ function Header() {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    // root is basically our html tag in index.html
+    
     root.classList.remove("dark", "light");
     root.classList.add(theme);
     localStorage.setItem("theme", theme);
