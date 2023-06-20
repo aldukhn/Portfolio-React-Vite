@@ -8,10 +8,10 @@ import { useState, useEffect } from "react";
 import HashLoader from "react-spinners/HashLoader";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // Simulate a network request to fetch data
+    setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
